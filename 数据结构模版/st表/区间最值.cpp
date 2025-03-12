@@ -5,7 +5,7 @@ struct SortTable{
 	vector<vector<T>> st;
 	int s;
 	SortTable(int n):st((int)log2(n)+1,vector<T>(n+1,0)),s(n){}
-	void init(T *data)
+	void init(T *data)//data数据的起始位置为1;
 	{
 		for(int i=1;i<=s;i++)st[0][i]=data[i];
 		for(int len=1;(1<<len)<=n;len++){
