@@ -24,7 +24,7 @@ struct segtree{
 		maxr[ind]=max(maxr[rc],sum[rc]+maxr[lc]);
 		ans[ind]=max({sum[ind],ans[lc],ans[rc],maxr[lc]+maxl[rc]});
 	}
-	void update(Tnode &node,Tnode s1,Tnode s2)//用与请求时的结果的更新
+	void update(Tnode &node,Tnode s1,Tnode s2)//用于请求时的结果的更新
 	{
 		node.sum=s1.sum+s2.sum;
 		node.maxl=max(s1.maxl,s1.sum+s2.maxl);
@@ -51,9 +51,9 @@ struct segtree{
 		if(L[ind]>=l&&R[ind]<=r)return Tnode(ans[ind],maxl[ind],maxr[ind],sum[ind]);
 		int mid=L[ind]+(R[ind]-L[ind])/2;
 		int lc=ind*2,rc=ind*2+1;
-		if(r<=mid)return query(lc,l,r);
+		if(r<=mid)return query(lc,l,r);//全在右区间
 		else{
-			if(mid<l)return query(rc,l,r);
+			if(mid<l)return query(rc,l,r);//全在左区间
 			else{
 				Tnode t,s1=query(lc,l,r),s2=query(rc,l,r);
 				update(t,s1,s2);
