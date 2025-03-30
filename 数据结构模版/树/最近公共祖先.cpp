@@ -4,6 +4,7 @@ vector<int> e[N];
 int dep[N];
 int fa[N][20];
 
+//初始化建立倍增表
 void dfs(int cur,int f){
 	dep[cur]=dep[f]+1;
 	fa[cur][0]=f;
@@ -15,7 +16,7 @@ void dfs(int cur,int f){
 		dfs(i,cur);
 	}
 }
-
+//查询节点x,y的最近公共祖先
 int lca(int x,int y)
 {
 	if(dep[x]<dep[y])swap(x,y);
