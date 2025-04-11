@@ -35,7 +35,7 @@ ll query(ll d[],int ind){
 //区间查询
 ll query(ll s0[],ll s1[],int l,int r){
 	ll res=0;
-	res=sum[r]+(ll)(r+1)*query(s0,r)-query(s1,r);//公式 sum[l,r]=sum[r]+(r+1)*d0[r]-d1[r]-(sum[l-1]+(l)*d0[l-1]-d1[l-1]);
+	res=sum[r]+(ll)(r+1)*query(s0,r)-query(s1,r);//公式 sum[l,r]=sum[r]+(r+1)*d0[r]-d1[r]-(sum[l-1]+l*d0[l-1]-d1[l-1]);
 	res-=sum[l-1]+(ll)l*query(s0,l-1)-query(s1,l-1);
 	return res;
 }
