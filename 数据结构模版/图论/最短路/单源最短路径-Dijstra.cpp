@@ -8,6 +8,7 @@ int vis[N];//记录某一点到源点的最短距离是否已经确定
 
 void djis()
 {
+	memset(res,0x3f3f,sizeof(res));
 	priority_queue<pii,vector<pii>,greater<pii>> que;
 	vis[s]=1;
 	res[s]=0;
